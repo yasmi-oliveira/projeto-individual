@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <link rel="stylesheet" href="css/style-login.css">
+</head>
+
+<body onload="listar()">
+
+  <header>
+    <div class="navbar">
+      <a href="index.html">
+        <div class="logo"><img src="style/assets/imags/userlmn_1d29dd8f3801443652fa35798ce71482-removebg-preview (1).png" alt=""></div>
+      </a>
+      <p>|</p>
+      <ul>
+        <li>Sobre a serie</li>
+      </ul>
+      <p>|</p>
+      <ul>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <div class="login">
+      <div class="cards">
+        <div class="cardum">
+          <h1>Ola!</h1>
+          <h4>Bom te ver por aqui, faça cadatro e viaje pelo universo de doctor who!</h4>
+          <img src="style/assets/imags/7-76223_happy-birthday-doctor-who-doctor-who-png-transparent-removebg-preview.png" alt="">
+        </div>
+
+        <div class="carddois">
+          <h3>Nome:</h3>
+          <input type="text" id="nome_input">
+
+          <h3>Email:</h3>
+          <input type="text" id="email_input">
+
+          <h3>Nome de usuario (username)</h3>
+          <input type="text" id="username_input">
+
+          <h3>Senha:</h3>
+          <input type="password" id="senha_input">
+
+          <h3>Confirmar senha:</h3>
+          <input type="password" id="confirmacao_senha_input">
+
+          <button class="botao" onclick="cadastrar()">Cadastrar</button>
+
+          <div id="div_aguardar" class="loading-div">
+            <!-- <img src="./assets/circle-loading.gif" id="loading-gif" /> -->
+          </div>
+
+          <div id="div_erros_login"></div>
+        </div>
+      </div>
+      <span>ja tem uma conta? <a href="login.html">faça login</a></span>
+    </div>
+  </main>
+
+  <script>
+    function listar() {
+      fetch("", {
+        method: "GET",
+      })
+        .then(function (resposta) {
+          resposta.json().then((username) => {
+            empresas.forEach((username) => {
+              listaEmpresas.innerHTML += `<option value='${usuario.username}' </option>`;
+            });
+          });
+        })
+        .catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`);
+        });
+    }
+
+    function cadastrar() {
+      var nomeVar = nome_input.value;
+      var usernameVar = username_input.value;
+      var emailVar = email_input.value;
+      var senhaVar = senha_input.value;
+      var confirmacaoSenhaVar = confirmacao_senha_input.value;
+
+      if (
+        nomeVar == "" ||
+        emailVar == "" ||
+        senhaVar == "" ||
+        confirmacaoSenhaVar == "" ||
+        usernameVar == ""
+      ) {
+        cardErro.style.display = "block";
+        mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+        finalizarAguardar();
+        return false;
+      } else {
+        setInterval(sumirMensagem, 5000);
+      }
+
+      fetch("/usuarios/cadastrar", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          nomeServer: nomeVar,
+          emailServer: emailVar,
+          senhaServer: senhaVar,
+          usernameServer: usernameVar
+        }),
+      })
+        .then(function (resposta) {
+          console.log("resposta: ", resposta);
+
+          if (resposta.ok) {
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+            setTimeout(() => {
+              window.location = "login.html";
+            }, "2000");
+
+            limparFormulario();
+            finalizarAguardar();
+          } else {
+            throw "Houve um erro ao tentar realizar o cadastro!";
+          }
+        })
+        .catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`);
+          finalizarAguardar();
+        });
+
+      return false;
+    }
+
+    function sumirMensagem() {
+      cardErro.style.display = "none";
+    }
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="./js/sessao.js"></script>
+    <link rel="stylesheet" href="css/style-login.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="navbar">
+           <a href="index.html"> <div class="logo"><img
+                    src="style/assets/imags/userlmn_1d29dd8f3801443652fa35798ce71482-removebg-preview (1).png" alt="">
+            </div> </a>
+            <p>|</p>
+
+            <ul>
+                <li>Sobre a serie</li>
+            </ul>
+
+            <p>|</p>
+
+            <ul>
+                <li> <a href="cadastro.html">Cadastro</a></li>
+            </ul>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+
+        <div class="login">
+            <div class="alerta_erro">
+                <div class="card_erro" id="cardErro">
+                    <span id="mensagem_erro"></span>
+                </div>
+            <div class="cards" style="background-image: url(assets/imags/e351d6bbd29979a6e1fc6994973883bb.jpg);">
+
+                <div class="cardum">
+                    <h1>ola! <br>
+                        bem vindo de volta viajante!</h1>
+                    <!-- <img src="assets/imags/kisspng-doctor-valentine-s-day-amy-pond-tardis-police-box-5b2985c2130532.1997155915294478740779.png" -->
+                        alt="">
+                </div>
+
+                <div class="carddois">
+                    <!-- <img src="style/assets/imags/logincadastro/c56157d5-5d8e-4826-89f9-361412275c35.jpg" alt=""> -->
+                    <h3>username:</h3>
+                    <input type="text" id="username_input">
+
+                    <h3>senha:</h3>
+                    <input type="text" id="senha_input">
+                    <button onclick="entrar()">entrar</button>
+
+                    <span>ainda não tem conta? <a href="cadastro.html">cadastre se </a></span>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+    <!--footer inicio-->
+    <div class="footer">
+        <div class="container">
+            <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023</h4>
+            <span class="version">v1.0.0</span>
+        </div>
+    </div>
+    <!--footer fim-->
+
+</body>
+
+</html>
+
+<script>
+    function entrar() {
+        var usernameVar = username_input.value;
+        var senhaVar = senha_input.value;
+
+        if (usernameVar == "" || senhaVar == "") {
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML = "Por favor, preencha todos os campos.";
+            finalizarAguardar();
+            return false;
+        } else {
+            setInterval(sumirMensagem, 5000);
+        }
+
+        console.log("FORM USERNAME: ", usernameVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                usernameServer: usernameVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!");
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                sessionStorage.setItem("username", usernameVar);
+    
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    setTimeout(function () {
+                        window.location = "userpage/guia.html";
+                    }, 1000); // apenas para exibir o loading
+                });
+
+            } else {
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+        });
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none";
+    }
+</script>
