@@ -9,7 +9,6 @@ router.post("/cadastrar-avaliacao", function (req, res) {
     guiaController.cadastrarAvaliacao(req, res);
 });
 
-// No seu arquivo de roteamento (guiaRoutes.js)
 router.get("/dados-do-grafico", function (req, res) {
     guiaController.obterDadosDoGrafico(req, res);
 });

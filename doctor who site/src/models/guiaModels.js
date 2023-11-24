@@ -1,23 +1,3 @@
-// // models/guiaModel.js
-
-// var database = require("../database/config");
-
-// function cadastrarAvaliacao(fkusuario, avaliacao, fktemp) {
-//     var instrucao = `
-//         -- Sua instrução SQL para cadastrar a avaliação
-//         INSERT INTO avaliacao (fkusuario, avaliacao, fktemp) VALUES ( (select idusuario from usuario where username='${fkusuario}'),${avaliacao}, ${fktemp});
-//     `;
-
-//     return database.executar(instrucao);
-// }
-
-// module.exports = {
-//     cadastrarAvaliacao
-// };
-
-
-// models/guiaModel.js
-
 var database = require("../database/config");
 
 function verificarVotoExistente(fkusuario, fktemp) {
@@ -67,8 +47,8 @@ function atualizarAvaliacao(fkusuario, avaliacao, fktemp) {
 
 function obterDadosDoGrafico() {
     var instrucao = `
-        -- Sua consulta SQL para obter dados do gráfico
-        SELECT COUNT(avaliacao) AS count, avaliacao
+      
+        SELECT COUNT(fkusuario) AS count, avaliacao
         FROM avaliacao
         GROUP BY avaliacao;
     `;

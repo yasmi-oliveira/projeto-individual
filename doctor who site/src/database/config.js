@@ -3,14 +3,11 @@ var sql = require('mssql');
 
 // CONEXÃO DO SQL SERVER - AZURE (NUVEM)
 
-
-
-// CONEXÃO DO MYSQL WORKBENCH
 var mySqlConfig = {
     host: "localhost",
     database: "doctorwho",
-    user: "root",
-    password: "root",
+    user: "aluno",
+    password: "sptech",
 };
 
 function executar(instrucao) {

@@ -13,8 +13,9 @@
 
     <header>
         <div class="navbar">
-            <div class="logo"><img onclick="userpage()"
-                    src="assets/imags/userlmn_1d29dd8f3801443652fa35798ce71482-removebg-preview (1).png" alt="">
+            <div class="logo"> <a href="../index.html"><img onclick="userpage()"
+                        src="assets/imags/userlmn_1d29dd8f3801443652fa35798ce71482-removebg-preview (1).png" alt="">
+                </a>
             </div>
             <p>|</p>
             <ul>
@@ -30,11 +31,6 @@
             </ul>
         </div>
     </header>
-
-
-
-
-
 
     <main>
         <div class="margem">
@@ -308,9 +304,36 @@
 
 <script>
 
+    var data = {
+        labels: [],
+        datasets: [{
+            label: 'Valores',
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1
+        }]
+    };
+
+    var options = {
+        scales: {
+            x: {
+                beginAtZero: true
+            },
+            y: {
+                beginAtZero: true
+            }
+        },
+        indexAxis: 'y',
+        responsive: true
+    };
 
 
-
+    const ctx = document.getElementById('barChart').getContext('2d');
+    var barChart = new Chart(ctx, {
+        type: 'bar',
+        data: data,
+        options: options
+    });
 
     var stars = document.getElementsByClassName("star");
 
@@ -355,7 +378,6 @@
             .then(response => response.json())
             .then(data => {
                 console.log("Resposta do servidor:", data);
-                atualizarGrafico();
             })
             .catch(error => {
                 console.error("Erro ao enviar avaliação:", error);
@@ -368,50 +390,20 @@
         }
     }
 
- 
+
     function atualizarGrafico() {
         fetch("/guia/dados-do-grafico")
-            .then(response => response.json())
-            .then(data => {
-                
-                barChart.data.labels = data.map(item => item.avaliacao);
-                barChart.data.datasets[0].data = data.map(item => item.count);
-                barChart.update();
-            })
-            .catch(error => {
-                console.error("Erro ao buscar dados do gráfico:", error);
-            });
+            .then(response => response.json().then(json => {
+                console.log(json)
+                for (var increment = 0; increment < 5; increment++) {
+                    barChart.data.datasets[0].data.push(json[increment].count)
+                    barChart.data.labels.push(`estrelinha ${json[increment].avaliacao}`)
+                }
+                barChart.update()
+            }))
     }
 
-    var data = {
-        labels: ['', 'Categoria 2', 'Categoria 3', 'Categoria 4', 'Categoria 5'],
-        datasets: [{
-            label: 'Valores',
-            data: [],
-            backgroundColor: 'rgba(75, 192, 192, 0.2)', 
-            borderColor: 'rgba(75, 192, 192, 1)', 
-            borderWidth: 1 
-        }]
-    };
+    atualizarGrafico()
 
-    var options = {
-        scales: {
-            x: {
-                beginAtZero: true
-            },
-            y: {
-                beginAtZero: true
-            }
-        },
-        indexAxis: 'y', 
-        responsive: true
-    };
 
-  
-    var ctx = document.getElementById('barChart').getContext('2d');
-    var barChart = new Chart(ctx, {
-        type: 'bar',
-        data: data,
-        options: options
-    });
 </script>
