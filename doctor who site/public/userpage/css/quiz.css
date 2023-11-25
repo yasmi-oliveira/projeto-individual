@@ -1,0 +1,56 @@
+
+.quiz{
+    display: flex;
+    flex-direction: column;
+    background-color: aliceblue;
+    align-items: center;
+    height: 400px;
+    width: 600px;
+    justify-content: center;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    margin-left: 370px;
+    margin-top: 150px;
+}
+body{
+    background-color:  #261c42;
+}
+
+main {
+    display: flex;
+}
+.menu{
+    background-color: aliceblue;
+    width: 190px;
+    height: 620px;
+    display: none;
+    position: absolute;
+    z-index: 1;
+}
+.estilo{
+    display: flex;
+    justify-content: space-around;
+   
+}
+
+.respostaestilo{
+    width: 250px;
+    font-size: 20px;
+    height: 100px;
+    background-color: rgb(165, 161, 161);
+    margin-top: 20px;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    padding: 50px;
+    border-radius: 5px;
+}
+
+.respostaestilo:hover{
+    background-color: #261c42;
+}
+
+.respostacerta{
+    background-color: rgb(69, 136, 69);
+}

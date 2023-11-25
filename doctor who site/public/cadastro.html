@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="css/style-login.css">
 </head>
 
-<body onload="listar()">
+<body>
 
   <header>
     <div class="navbar">
@@ -65,22 +65,7 @@
   </main>
 
   <script>
-    function listar() {
-      fetch("", {
-        method: "GET",
-      })
-        .then(function (resposta) {
-          resposta.json().then((username) => {
-            empresas.forEach((username) => {
-              listaEmpresas.innerHTML += `<option value='${usuario.username}' </option>`;
-            });
-          });
-        })
-        .catch(function (resposta) {
-          console.log(`#ERRO: ${resposta}`);
-        });
-    }
-
+  
     function cadastrar() {
       var nomeVar = nome_input.value;
       var usernameVar = username_input.value;

@@ -64,7 +64,7 @@
                                 </div>
                                 <div class="dashboard"
                                     style="border-radius: 10px; background-color: rgb(169, 173, 177);">
-                                    <canvas id="barChart" width="290" height="170px" style="width: 400px;"></canvas>
+                                    <canvas id="barChart" width="300" height="170px" style="width: 400px;"></canvas>
                                 </div>
                             </div>
 
@@ -310,21 +310,47 @@
             label: 'Valores',
             backgroundColor: 'rgba(75, 192, 192, 0.2)',
             borderColor: 'rgba(75, 192, 192, 1)',
-            borderWidth: 1
+            borderWidth: 1,
+            
+            barPercentage: 0.8,
+            borderSkipped: false,
+            borderRadius: 3,
+            categoryPercentage: 0.8
         }]
     };
 
     var options = {
+       
         scales: {
             x: {
-                beginAtZero: true
+                beginAtZero: true,
+                 beginAtZero: true,
+                grid: {
+                    display: false,
+                    drawBorder: false
+                },
+                ticks:{
+                     display: false
+                }
             },
             y: {
-                beginAtZero: true
+                beginAtZero: true,
+                grid: {
+                    display: false,
+                    drawBorder: false
+                },
+                ticks:{
+                    display: false
+                }
             }
         },
+        responsive: true,
         indexAxis: 'y',
-        responsive: true
+        plugins: {
+            legend: {
+                display: false
+            }
+        }
     };
 
 
