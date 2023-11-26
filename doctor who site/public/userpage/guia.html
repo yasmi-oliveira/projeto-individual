@@ -27,7 +27,7 @@
             </ul>
             <p>|</p>
             <ul>
-                <li> <a href="guia.html">Quiz</a> </li>
+                <li> <a href="quiz.html">Quiz</a> </li>
             </ul>
         </div>
     </header>
@@ -311,48 +311,59 @@
             backgroundColor: 'rgba(75, 192, 192, 0.2)',
             borderColor: 'rgba(75, 192, 192, 1)',
             borderWidth: 1,
-            
+
             barPercentage: 0.8,
             borderSkipped: false,
             borderRadius: 3,
-            categoryPercentage: 0.8
+            categoryPercentage: 0.2
         }]
     };
 
-    var options = {
-       
-        scales: {
-            x: {
-                beginAtZero: true,
-                 beginAtZero: true,
-                grid: {
-                    display: false,
-                    drawBorder: false
-                },
-                ticks:{
-                     display: false
-                }
-            },
-            y: {
-                beginAtZero: true,
-                grid: {
-                    display: false,
-                    drawBorder: false
-                },
-                ticks:{
-                    display: false
-                }
-            }
-        },
-        responsive: true,
-        indexAxis: 'y',
-        plugins: {
-            legend: {
-                display: false
-            }
-        }
-    };
+    const progressbar = {
+    id: 'progressbar',
+    beforeDatasetsDraw(chart, args, pluginOptions) {
+        const { ctx, data, chartArea: { left, scales: { y } } } = chart;
+        ctx.save();
+        ctx.font = '12px sans-serif';
+        ctx.fillStyle = 'rgba(102, 102, 102, 1)';
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(data.labels[0], left + 10, y.getPixelForValue(0));
+        ctx.restore();
+    },
+};
 
+var options = {
+    scales: {
+        x: {
+            beginAtZero: true,
+            grid: {
+                display: false,
+                drawBorder: false,
+            },
+            ticks: {
+                display: false,
+            },
+        },
+        y: {
+            beginAtZero: true,
+            grid: {
+                display: false,
+                drawBorder: false,
+            },
+            ticks: {
+                display: false,
+            },
+        },
+    },
+    responsive: true,
+    indexAxis: 'y',
+    plugins: {
+        legend: {
+            display: false,
+        },
+    },
+};
 
     const ctx = document.getElementById('barChart').getContext('2d');
     var barChart = new Chart(ctx, {
@@ -422,8 +433,10 @@
             .then(response => response.json().then(json => {
                 console.log(json)
                 for (var increment = 0; increment < 5; increment++) {
-                    barChart.data.datasets[0].data.push(json[increment].count)
-                    barChart.data.labels.push(`estrelinha ${json[increment].avaliacao}`)
+                    if (json[increment]) {
+                        barChart.data.datasets[0].data.push(json[increment].count);
+                        barChart.data.labels.push(`estrelinha ${json[increment].avaliacao}`);
+                    }
                 }
                 barChart.update()
             }))

@@ -9,13 +9,18 @@
 }
 
 header .navbar {
-    background-color: rgb(0, 0, 0);
+    background-image: linear-gradient(to bottom, #261c42, #7c305163);
     width: 100%;
     height: 70px;
     display: flex;
     align-items: center;
 }
 
+body{
+    background: url(../assets/imags/wp6146889.webp);
+    background-position: center;
+    background-size: contain;
+}
 
 .logo img {
     width: 220px;
@@ -44,12 +49,10 @@ header p {
 
 
 main {
-    /* background-color: black; */
     background-image: linear-gradient(to bottom);
     width: 100%;
     height: 680px;
     background-position: center;
-    backdrop-filter: blur(7px);
 }
 
 .login {
@@ -63,17 +66,19 @@ main {
 .cards {
     display: flex;
     color: rgb(255, 255, 255);
-    height: 400px;
+    height: 500px;
     justify-content: space-around;
 
 }
 
-.cardum {
-    background-color: rgb(10, 10, 68);
-    width: 40%;
+/* .cardum {
+    background-color:  #e95f663f;
+    width:400px ;
     padding: 50px;
     background-image: url(assets/imags/com-gif-maker-unscreen.gif);
-}
+    margin-left: 100px;
+    
+} */
 
 .cardum img{
 
@@ -84,6 +89,38 @@ height: 100%;
 .carddois {
     height: 100%;
     color: black;
-    background-color: white;
-    width: 60%;
+    background-color: rgb(200, 195, 195);
+    width: 500px;
+    margin-right: 200px;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    gap: 5px;
+}
+
+.carddois input{
+    height: 50px;
+    border-radius: 5px;
+}
+
+.doctor{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(240, 248, 255, 0.029);
+   padding: 20px;
+   text-align: center;
+   margin-left: 60px;
+}
+
+.doctor img{
+   height: 230px;
+}
+
+.doctor p{
+    font-size: 17px;
+    
 }

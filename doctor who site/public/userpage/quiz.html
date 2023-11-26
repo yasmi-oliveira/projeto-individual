@@ -89,7 +89,7 @@
     </div>
 
     <div class="estilo">
-        <div class="respostaestilo" onclick="verificarresposta( 1)"> Resposta 1</div>
+        <div class="respostaestilo" onclick="verificarresposta(1)"> Resposta 1</div>
         <div class="respostaestilo" onclick="verificarresposta(0)"> Resposta 2</div>
     </div>
     </div>
@@ -103,12 +103,12 @@
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores iste nam quia eligendi aperiam exercitationem odit laboriosam nisi accusantium! Aperiam nulla in illo modi ipsum atque ad eos consequuntur culpa?</p>
    
         <div class="estilo">
-        <div class="respostaestilo" onclick="verificarresposta( 1)"> Resposta 1</div>
-        <div class="respostaestilo" onclick="verificarresposta( 0)"> Resposta 2</div>
+        <div class="respostaestilo" onclick="verificarresposta(1)"> Resposta 1</div>
+        <div class="respostaestilo" onclick="verificarresposta(0)"> Resposta 2</div>
     </div>
 
     <div class="estilo">
-        <div class="respostaestilo" onclick="verificarresposta( 1)"> Resposta 1</div>
+        <div class="respostaestilo" onclick="verificarresposta(1)"> Resposta 1</div>
         <div class="respostaestilo" onclick="verificarresposta(0)"> Resposta 2</div>
     </div>
     </div>
@@ -151,12 +151,36 @@
     </div>
     </div>
 
+    <div class="quiz" id="Questao7"  style="display: none;">
+        <h1>
+            Seu score total é <span id="score"></span>
+        </h1>
+    
+        <h2>Maior pontuação: <span id="maxPontuacao"></span></h2>
+        <h2>Menor pontuação: <span id="minPontuacao"></span></h2>
+
     
 </main>
 </body>
 
 </html>
 <script>
+
+var username = sessionStorage.getItem("username");
+
+        if (username) {
+            buscarMinMaxPontuacao(username);
+        }
+
+        function buscarMinMaxPontuacao(username) {
+            fetch(`/quiz/minmax/${username}`)
+                .then(response => response.json())
+                .then(data => {
+                    minPontuacao.innerHTML = data.minPontuacao;
+                    maxPontuacao.innerHTML = data.maxPontuacao;
+                })
+                .catch(error => console.error("Erro ao buscar pontuações:", error));
+        }
      function userpage() {
        var menuhome = document.getElementById("home");
 
@@ -173,7 +197,7 @@
     var perguntaAtual = 1;
 
     function mostrarPergunta(perguntaAtual) {
-        for (var numero = 1; numero <= 6; numero += 1) {
+        for (var numero = 1; numero <= 7; numero += 1) {
             var pergunta = document.getElementById("Questao" + numero)
             if (numero === perguntaAtual) {
                 pergunta.style.display = "block"
@@ -181,26 +205,54 @@
                 pergunta.style.display = "none"
             }
         }
+
+       
     }
 
     function verificarresposta(n) {
+    if (n == 1) {
+        listaresposta.push(n);
+        console.log("resposta correta!");
+    } else {
+        console.log("resposta errada!");
+    }
 
-        if (n == 1) {
-            listaresposta.push(n)
-            console.log("resposta correta!")
+    respostacorreta = listaresposta.length;
+    var username = sessionStorage.getItem("username");
+
+
+   score.innerHTML= (listaresposta.length)
+
+    if (respostacorreta >= 0) {
+        perguntaAtual += 1;
+        if (perguntaAtual <= 6) {
+            setTimeout(function () {
+                mostrarPergunta(perguntaAtual);
+            }, 500);
         } else {
           
-            console.log("resposta errada!")
+            fetch("/quiz/adicionar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    respostacorretaServer: respostacorreta,
+                    usernameServer: username
+                }),
+            }).then(response => {
+                if (response.ok) {
+                    console.log("Pontuações enviadas com sucesso!");
+                } else {
+                    console.error("Erro ao enviar pontuações:", response.statusText);
+                }
+            }).catch(error => {
+                console.error("Erro ao enviar pontuações:", error);
+            });
+            mostrarPergunta(7);
         }
-        respostacorreta = listaresposta.length
-        if (respostacorreta >= 0) {
-            perguntaAtual += 1;
-            if (perguntaAtual <= 6) {
-                setTimeout(function () {
-                    mostrarPergunta(perguntaAtual);
-                }, 500);
-            }
-        }
+       
     }
+}
 
 </script>

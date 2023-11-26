@@ -11,7 +11,8 @@ var app = express();
 var indexRouter = require("./src/routes/index");
 var usuarioRouter = require("./src/routes/usuarios");
 var guiaRouter = require("./src/routes/guia");
-// var guiaRouter = require("./src/routes/quiz");
+var quizRouter = require("./src/routes/quiz");
+
 
 
 
@@ -24,7 +25,7 @@ app.use(cors());
 app.use("/", indexRouter);
 app.use("/usuarios", usuarioRouter);
 app.use("/guia", guiaRouter);
-// app.use("/quiz", guiaRouter);
+app.use("/quiz", quizRouter);
 
 app.listen(PORTA, function () {
     console.log(`Servidor do seu site já está rodando! Acesse o caminho a seguir para visualizar: http://localhost:${PORTA} \n

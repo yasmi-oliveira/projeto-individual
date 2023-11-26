@@ -16,10 +16,10 @@ function cadastrarAvaliacao(fkusuario, avaliacao, fktemp) {
     return verificarVotoExistente(fkusuario, fktemp)
         .then(totalVotos => {
             if (totalVotos === 0) {
-                // Se não houver votos, insere um novo
+                // se não houver votos, insere um novo
                 return inserirAvaliacao(fkusuario, avaliacao, fktemp);
             } else {
-                // Se já houver votos, atualiza o existente
+                // se já houver votos, atualiza o existente
                 return atualizarAvaliacao(fkusuario, avaliacao, fktemp);
             }
         });

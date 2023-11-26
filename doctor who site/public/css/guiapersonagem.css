@@ -1,0 +1,13 @@
+.dc{
+    display: flex;
+}
+
+.doctors{
+    padding: 150px;
+    
+}
+
+.doctortexto{
+    margin-bottom: 40px;
+    background-color: blue;
+}
