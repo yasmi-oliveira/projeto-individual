@@ -7,6 +7,8 @@
     <title>DW</title>
     <link rel="stylesheet" href="css/style-guia.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+
 </head>
 
 <body>
@@ -63,8 +65,9 @@
                                     <h5 id="outputt">Sua avaliação é: 0/5</h5>
                                 </div>
                                 <div class="dashboard"
-                                    style="border-radius: 10px; background-color: rgb(169, 173, 177);">
-                                    <canvas id="barChart" width="300" height="170px" style="width: 400px;"></canvas>
+                                    style="border-radius: 10px; background-color: rgb(169, 173, 177); width: 350px; padding: 15px;">
+                                    <div class="mediaestrelas"></div>
+                                    <canvas id="barChart" width="300px" height="170px" style="width: 400px;"></canvas>
                                 </div>
                             </div>
 
@@ -304,73 +307,195 @@
 
 <script>
 
-    var data = {
-        labels: [],
-        datasets: [{
-            label: 'Valores',
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            borderColor: 'rgba(75, 192, 192, 1)',
-            borderWidth: 1,
+    //     var data = {
+    //         labels: [],
+    //         datasets: [{
+    //             label: 'Valores',
+    //             backgroundColor: 'rgba(75, 192, 192, 0.2)',
+    //             borderColor: 'rgba(75, 192, 192, 1)',
+    //             borderWidth: 1,
 
-            barPercentage: 0.8,
+    //             barPercentage: 0.8,
+    //             borderSkipped: false,
+    //             borderRadius: 3,
+    //             categoryPercentage: 0.2
+    //         }]
+    //     };
+
+    //     const progressbar = {
+    //     id: 'progressbar',
+    //     beforeDatasetsDraw(chart, args, pluginOptions) {
+    //         const { ctx, data, chartArea: { left, scales: { y } } } = chart;
+    //         ctx.save();
+    //         ctx.font = '12px sans-serif';
+    //         ctx.fillStyle = 'rgba(102, 102, 102, 1)';
+    //         ctx.textAlign = 'left';
+    //         ctx.textBaseline = 'middle';
+    //         ctx.fillText(data.labels[0], left + 10, y.getPixelForValue(0));
+    //         ctx.restore();
+    //     },
+    // };
+
+    // var options = {
+    //     scales: {
+    //         x: {
+    //             beginAtZero: true,
+    //             grid: {
+    //                 display: false,
+    //                 drawBorder: false,
+    //             },
+    //             ticks: {
+    //                 display: false,
+    //             },
+    //         },
+    //         y: {
+    //             beginAtZero: true,
+    //             grid: {
+    //                 display: false,
+    //                 drawBorder: false,
+    //             },
+    //             ticks: {
+    //                 display: false,
+    //             },
+    //         },
+    //     },
+    //     responsive: true,
+    //     indexAxis: 'y',
+    //     plugins: {
+    //         legend: {
+    //             display: false,
+    //         },
+    //     },
+    // };
+
+    //     const ctx = document.getElementById('barChart').getContext('2d');
+    //     var barChart = new Chart(ctx, {
+    //         type: 'bar',
+    //         data: data,
+    //         options: options
+    //     });
+
+
+
+
+
+    // setup 
+    const data = {
+        labels: ['1 estrela', '2 estrelas', '3 estrelas', '4 estrelas', '5 estrelas'],
+        datasets: [{
+            label: 'estrelinhas',
+            data: [],
+            backgroundColor: [
+                'rgba(255, 26, 104, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(0, 0, 0, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 26, 104, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(0, 0, 0, 1)'
+            ],
+            borderWidth: 1,
             borderSkipped: false,
-            borderRadius: 3,
-            categoryPercentage: 0.2
+            borderRadius: 2,
+            barPercentage: 0.8,
+            categoryPercentage: 0.9
         }]
     };
 
-    const progressbar = {
-    id: 'progressbar',
-    beforeDatasetsDraw(chart, args, pluginOptions) {
-        const { ctx, data, chartArea: { left, scales: { y } } } = chart;
-        ctx.save();
-        ctx.font = '12px sans-serif';
-        ctx.fillStyle = 'rgba(102, 102, 102, 1)';
-        ctx.textAlign = 'left';
-        ctx.textBaseline = 'middle';
-        ctx.fillText(data.labels[0], left + 10, y.getPixelForValue(0));
-        ctx.restore();
-    },
-};
+    const progressBar = {
+        id: 'progressBar',
+        beforeDatasetsDraw(chart, args, pluginOptions) {
+            const { ctx, data, chartArea: { top, bottom, left, right, width, height },
+                scales: { x, y } } = chart;
 
-var options = {
-    scales: {
-        x: {
-            beginAtZero: true,
-            grid: {
-                display: false,
-                drawBorder: false,
-            },
-            ticks: {
-                display: false,
-            },
-        },
-        y: {
-            beginAtZero: true,
-            grid: {
-                display: false,
-                drawBorder: false,
-            },
-            ticks: {
-                display: false,
-            },
-        },
-    },
-    responsive: true,
-    indexAxis: 'y',
-    plugins: {
-        legend: {
-            display: false,
-        },
-    },
-};
+            data.datasets[0].data.forEach((datapoint, index) => {
 
-    const ctx = document.getElementById('barChart').getContext('2d');
-    var barChart = new Chart(ctx, {
+                const fontSizeLabel = 17;
+
+                ctx.font = `${fontSizeLabel}px`;
+                ctx.fillStyle = 'rgba(0, 0, 0, 1)',
+                    ctx.textAlign = 'left',
+                    ctx.textBaseLine = 'middle'
+                ctx.fillText(data.labels[index], left, y.getPixelForValue(index))
+
+                const fontSizeDatapoint = 17;
+
+                ctx.font = `bolder ${fontSizeDatapoint}px`;
+                ctx.fillStyle = 'rgba(0, 0, 0, 1)',
+                    ctx.textAlign = 'right'
+                ctx.textBaseLine = 'middle'
+                ctx.fillText(datapoint, right, y.getPixelForValue(index))
+
+
+            })
+
+            ctx.save()
+
+
+        }
+
+    }
+
+    // config 
+    const config = {
         type: 'bar',
-        data: data,
-        options: options
-    });
+        data,
+        options: {
+            indexAxis: 'y',
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    grid: {
+                        display: false,
+                        drawBorder: false
+                    },
+                    ticks: {
+                        display: false
+                    }
+                },
+                x: {
+                    beginAtZero: true,
+                    grid: {
+                        display: false,
+                        drawBorder: false
+                    },
+                    ticks: {
+                        display: false
+                    }
+                }
+
+
+            }
+        },
+        plugins: [progressBar]
+    };
+
+    // render init block
+    const barChart = new Chart(
+        document.getElementById('barChart'),
+        config
+    );
+
+    // // Instantly assign Chart.js version
+    // const chartVersion = document.getElementById('chartVersion');
+    // chartVersion.innerText = Chart.version;
+
+
+
 
     var stars = document.getElementsByClassName("star");
 
@@ -393,6 +518,8 @@ var options = {
             stars[i].className = cls;
         }
         outputt.innerText = "Sua avaliação é: " + n + "/5";
+
+        sessionStorage.setItem("avaliacaoSelecionada", n);
 
         enviarAvaliacaoAoServidor(avaliacaoSelecionada);
     }
@@ -428,18 +555,46 @@ var options = {
     }
 
 
+    // function atualizarGrafico() {
+    //     fetch("/guia/dados-do-grafico")
+    //         .then(response => response.json()
+    //         .then(json => {
+    //             console.log(json)
+    //             for (var increment = 0; increment < 5; increment++) {
+    //                 if (json[increment]) {
+    //                     barChart.data.datasets[0].data.push(json[increment].count);
+    //                     barChart.data.labels.push(`estrelinha ${json[increment].avaliacao}`);
+    //                 }
+    //             }
+    //             barChart.update()
+    //         }))
+    // }
+
     function atualizarGrafico() {
         fetch("/guia/dados-do-grafico")
-            .then(response => response.json().then(json => {
-                console.log(json)
+            .then(response => response.json())
+            .then(json => {
+                // aqui ta limpando dados existentes
+                barChart.data.datasets[0].data = [];
+                barChart.data.labels = [];
+                // aqui ta atualizano para os dados novos
                 for (var increment = 0; increment < 5; increment++) {
                     if (json[increment]) {
                         barChart.data.datasets[0].data.push(json[increment].count);
                         barChart.data.labels.push(`estrelinha ${json[increment].avaliacao}`);
                     }
+                    const avaliacao = sessionStorage.getItem("avaliacaoSelecionada");
+
+                    if (avaliacao) {
+                        estrelinhas(parseInt(avaliacao));
+                    }
+              
                 }
-                barChart.update()
-            }))
+
+                    
+            })
+
+          
     }
 
     atualizarGrafico()
