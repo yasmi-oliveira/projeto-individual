@@ -15,17 +15,17 @@
 
     <header>
         <div class="navbar">
-            <div class="logo"> <a href="../index.html"><img onclick="userpage()"
+            <div class="logo"> <img onclick="userpage()"
                         src="assets/imags/userlmn_1d29dd8f3801443652fa35798ce71482-removebg-preview (1).png" alt="">
                 </a>
             </div>
             <p>|</p>
             <ul>
-                <li>Guia da série</li>
+                <li><a href="home.html">home</a></li>
             </ul>
             <p>|</p>
             <ul>
-                <li>Curiosidades</li>
+                <li><a href="guia-personagens.html">Guia dos personagens</a> </li>
             </ul>
             <p>|</p>
             <ul>
@@ -57,12 +57,12 @@
 
                                 <div class="card" data-pagina-atual="1">
                                     <h3>Avaliação</h3>
-                                    <span onclick="estrelinhas(1)" class="star">★</span>
-                                    <span onclick="estrelinhas(2)" class="star">★</span>
-                                    <span onclick="estrelinhas(3)" class="star">★</span>
-                                    <span onclick="estrelinhas(4)" class="star">★</span>
-                                    <span onclick="estrelinhas(5)" class="star">★</span>
-                                    <h5 id="outputt">Sua avaliação é: 0/5</h5>
+                                    <span onclick="estrelinhas(1)" class="estrela">★</span>
+                                    <span onclick="estrelinhas(2)" class="estrela">★</span>
+                                    <span onclick="estrelinhas(3)" class="estrela">★</span>
+                                    <span onclick="estrelinhas(4)" class="estrela">★</span>
+                                    <span onclick="estrelinhas(5)" class="estrela">★</span>
+                                    <h5 id="avaliacaoatual">Sua avaliação é: 0/5</h5>
                                 </div>
                                 <div class="dashboard"
                                     style="border-radius: 10px; background-color: rgb(169, 173, 177); width: 350px; padding: 15px;">
@@ -280,8 +280,8 @@
                     </h1>
 
                     <ul>
-                        <li>temporadas classicas</li>
-                        <li>temporada 2</li>
+                        <li> classicas</li>
+                        <li><a href="guia2.html">temporada 2</a></li>
                         <li>temporada 3</li>
                         <li>temporada 4</li>
                         <li>temporada 5</li>
@@ -301,85 +301,20 @@
         </div>
     </main>
 
+    <footer>
+        <p>yasmin angelica</p>
+        <h5>email:yasmin@spceh.school</h5>
+        <h5>endereço: rua haddock lobo</h5>
+        <h5>telefone:</h5>
+    </footer>
+
 </body>
 
 </html>
 
 <script>
 
-    //     var data = {
-    //         labels: [],
-    //         datasets: [{
-    //             label: 'Valores',
-    //             backgroundColor: 'rgba(75, 192, 192, 0.2)',
-    //             borderColor: 'rgba(75, 192, 192, 1)',
-    //             borderWidth: 1,
-
-    //             barPercentage: 0.8,
-    //             borderSkipped: false,
-    //             borderRadius: 3,
-    //             categoryPercentage: 0.2
-    //         }]
-    //     };
-
-    //     const progressbar = {
-    //     id: 'progressbar',
-    //     beforeDatasetsDraw(chart, args, pluginOptions) {
-    //         const { ctx, data, chartArea: { left, scales: { y } } } = chart;
-    //         ctx.save();
-    //         ctx.font = '12px sans-serif';
-    //         ctx.fillStyle = 'rgba(102, 102, 102, 1)';
-    //         ctx.textAlign = 'left';
-    //         ctx.textBaseline = 'middle';
-    //         ctx.fillText(data.labels[0], left + 10, y.getPixelForValue(0));
-    //         ctx.restore();
-    //     },
-    // };
-
-    // var options = {
-    //     scales: {
-    //         x: {
-    //             beginAtZero: true,
-    //             grid: {
-    //                 display: false,
-    //                 drawBorder: false,
-    //             },
-    //             ticks: {
-    //                 display: false,
-    //             },
-    //         },
-    //         y: {
-    //             beginAtZero: true,
-    //             grid: {
-    //                 display: false,
-    //                 drawBorder: false,
-    //             },
-    //             ticks: {
-    //                 display: false,
-    //             },
-    //         },
-    //     },
-    //     responsive: true,
-    //     indexAxis: 'y',
-    //     plugins: {
-    //         legend: {
-    //             display: false,
-    //         },
-    //     },
-    // };
-
-    //     const ctx = document.getElementById('barChart').getContext('2d');
-    //     var barChart = new Chart(ctx, {
-    //         type: 'bar',
-    //         data: data,
-    //         options: options
-    //     });
-
-
-
-
-
-    // setup 
+ //setando o grafico
     const data = {
         labels: ['1 estrela', '2 estrelas', '3 estrelas', '4 estrelas', '5 estrelas'],
         datasets: [{
@@ -445,7 +380,7 @@
 
     }
 
-    // config 
+ 
     const config = {
         type: 'bar',
         data,
@@ -483,48 +418,44 @@
         },
         plugins: [progressBar]
     };
-
-    // render init block
     const barChart = new Chart(
         document.getElementById('barChart'),
         config
     );
 
-    // // Instantly assign Chart.js version
-    // const chartVersion = document.getElementById('chartVersion');
-    // chartVersion.innerText = Chart.version;
 
-
-
-
-    var stars = document.getElementsByClassName("star");
+    var estrela= document.getElementsByClassName("estrela");
 
     var avaliacaoSelecionada = 0;
     var fkusuario = sessionStorage.getItem("username");
 
+
+    //comecinho da funcao de avaliacao, to contando e enviando a quantidade de estrelas
+
     function estrelinhas(n) {
-        avaliacaoSelecionada = n;
+    avaliacaoSelecionada = n;
 
-        var fkusuario = sessionStorage.getItem("username");
+    var fkusuario = sessionStorage.getItem("username");
 
-        remove();
-        for (var i = 0; i < n; i++) {
-            var cls = "star";
-            if (n == 1) cls += " one";
-            else if (n == 2) cls += " two";
-            else if (n == 3) cls += " three";
-            else if (n == 4) cls += " four";
-            else if (n == 5) cls += " five";
-            stars[i].className = cls;
-        }
-        outputt.innerText = "Sua avaliação é: " + n + "/5";
+    remover();
 
-        sessionStorage.setItem("avaliacaoSelecionada", n);
-
-        enviarAvaliacaoAoServidor(avaliacaoSelecionada);
+    for (var contador = 0; contador < n; contador += 1) {
+        var cls = "estrela";
+        if (n == 1) cls += " primeira";
+        else if (n == 2) cls += " segunda";
+        else if (n == 3) cls += " terceira";
+        else if (n == 4) cls += " quarta";
+        else if (n == 5) cls += " quinta";
+        estrela[contador].className = cls;
     }
 
-    function enviarAvaliacaoAoServidor(avaliacao) {
+    avaliacaoatual.innerHTML = `"Sua avaliação é: " ${n}/5`;
+
+    sessionStorage.setItem("avaliacaoSelecionada", n);
+
+    enviarAvaliacaoAoServidor(avaliacaoSelecionada);
+}
+     function enviarAvaliacaoAoServidor(avaliacao) {
         var cardElement = document.querySelector(".card");
         var paginaAtual = parseInt(cardElement.dataset.paginaAtual, 10);
 
@@ -541,16 +472,16 @@
         })
             .then(response => response.json())
             .then(data => {
-                console.log("Resposta do servidor:", data);
+                console.log("resposta do servidor:", data);
             })
             .catch(error => {
-                console.error("Erro ao enviar avaliação:", error);
+                console.erro("erro ao enviar avaliação:", erro);
             });
     }
 
-    function remove() {
-        for (var i = 0; i < 5; i++) {
-            stars[i].className = "star";
+    function remover() {
+        for (var contador = 0; contador < 5; contador+=1) {
+       estrela[contador].className = "estrela";
         }
     }
 
@@ -578,10 +509,10 @@
                 barChart.data.datasets[0].data = [];
                 barChart.data.labels = [];
                 // aqui ta atualizano para os dados novos
-                for (var increment = 0; increment < 5; increment++) {
-                    if (json[increment]) {
-                        barChart.data.datasets[0].data.push(json[increment].count);
-                        barChart.data.labels.push(`estrelinha ${json[increment].avaliacao}`);
+                for (var incremento = 0; incremento < 5; incremento+=1) {
+                    if (json[incremento]) {
+                        barChart.data.datasets[0].data.push(json[incremento].count);
+                        barChart.data.labels.push(`estrelinha ${json[incremento].avaliacao}`);
                     }
                     const avaliacao = sessionStorage.getItem("avaliacaoSelecionada");
 

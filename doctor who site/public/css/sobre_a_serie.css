@@ -1,0 +1,44 @@
+body{
+    background-color: rgb(3, 0, 27);
+ }
+
+.sobre{
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 19px;
+    color: white;
+}
+
+.sobre img{
+    height: 500px;
+    width: 700px;
+    margin-top: 50px;
+    border-radius: 8px;
+    margin-bottom: 50px;
+ 
+}
+
+.textos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: justify;
+    margin-left: 150px;
+    margin-right: 150px;
+    gap: 17px;
+    margin-bottom: 20px;
+}
+
+.textos h1{
+    align-items: center;
+    font-size: 29px;
+}
+
+.banner{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

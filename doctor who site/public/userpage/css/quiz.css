@@ -1,4 +1,7 @@
-
+header a{
+    text-decoration: none;
+    color: white;
+}
 .quiz{
     display: flex;
     flex-direction: column;
@@ -10,11 +13,11 @@
     padding: 30px;
     border-radius: 8px;
     text-align: center;
-    margin-left: 370px;
+    margin-left: 450px;
     margin-top: 150px;
 }
 body{
-    background-color:  #261c42;
+    background-color: rgb(3, 0, 27);
 }
 
 main {

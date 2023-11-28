@@ -4,57 +4,45 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="css/style-login.css">
-  <link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="../css/style-guia.css">
 </head>
 <body>
-  <header>
-    <div class="navbar">
-        <div class="logo"> <img onclick="userpage()"
-                    src="assets/imags/userlmn_1d29dd8f3801443652fa35798ce71482-removebg-preview (1).png" alt="">
-            
-        </div>
-        <p>|</p>
-        <ul>
-            <li>Guia da série</li>
-        </ul>
-        <p>|</p>
-        <ul>
-            <li>Curiosidades</li>
-        </ul>
-        <p>|</p>
-        <ul>
-            <li> <a href="guia.html">Quiz</a> </li>
-        </ul>
-    </div>
-</header>
+    <header>
+        <div class="navbar">
+            <div class="logo"> <img onclick="userpage()"
+                        src="assets/imags/userlmn_1d29dd8f3801443652fa35798ce71482-removebg-preview (1).png" alt="">
+                </a>
+            </div>           
+    </header>
 
 <main>
 
     <div class="menu" id="home"></div>
     <div class="atividades">
-        <div class="escolha">
+        <div class="escolha"><a href="guia.html">
             <h1>
                 tema
             </h1>
             <img src="assets/imags/3fe401f0104b2399966e47260047489b.jpg" alt="">
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam quod ut voluptates aut quisquam, repudiandae aliquid debitis laboriosam reiciendis maiores vero, nesciunt consequuntur? Iusto, consequatur? Quae doloribus quis quos illum!</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam quod ut voluptates aut quisquam, repudiandae aliquid debitis laboriosam reiciendis maiores vero, nesciunt consequuntur? Iusto, consequatur? Quae doloribus quis quos illum!</p></a>
         </div>
 
-        <div class="escolha">
+        <div class="escolha"><a href="guia-personagens.html">
             <h1>
                 tema
             </h1>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam quod ut voluptates aut quisquam, repudiandae aliquid debitis laboriosam reiciendis maiores vero, nesciunt consequuntur? Iusto, consequatur? Quae doloribus quis quos illum!</p>
+            <img src="assets/imags/3fe401f0104b2399966e47260047489b.jpg" alt="">
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam quod ut voluptates aut quisquam, repudiandae aliquid debitis laboriosam reiciendis maiores vero, nesciunt consequuntur? Iusto, consequatur? Quae doloribus quis quos illum!</p></a>
         </div>
 
-        <div class="escolha">
+        <div class="escolha"><a href="quiz.html">
             <h1>
                 tema
             </h1>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam quod ut voluptates aut quisquam, repudiandae aliquid debitis laboriosam reiciendis maiores vero, nesciunt consequuntur? Iusto, consequatur? Quae doloribus quis quos illum!</p>
+            <img src="assets/imags/3fe401f0104b2399966e47260047489b.jpg" alt="">
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam quod ut voluptates aut quisquam, repudiandae aliquid debitis laboriosam reiciendis maiores vero, nesciunt consequuntur? Iusto, consequatur? Quae doloribus quis quos illum!</p></a>
         </div>
-    </div>
     
 
 
@@ -67,7 +55,7 @@
    function userpage() {
        var menuhome = document.getElementById("home");
 
-       if (menuhome.style.display === "none" || menuhome.style.display === "") {
+       if (menuhome.style.display =="none" || menuhome.style.display == "") {
            menuhome.style.display = "block";
        } else {
            menuhome.style.display = "none";

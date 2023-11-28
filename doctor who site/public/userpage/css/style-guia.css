@@ -15,7 +15,7 @@ header .navbar {
     display: flex;
     align-items: center;
     position: fixed;
-    z-index: 1;
+    z-index: 2;
 }
 
 
@@ -44,6 +44,11 @@ header p {
     margin-left: 30px;
 }
 
+header a{
+    text-decoration: none;
+    color: white;
+}
+
 /* FIM DA HEADER */
 
 
@@ -51,44 +56,48 @@ header p {
     display: flex;
     height: 602x;
     /* background-image: url(assets/imags/snow-snowfall-unscreen.gif); */
-    background-color: #110d24;
+    background-color: rgb(8, 1, 27);
    background-position: center;
 
 }
 
 .temporadaum{
-    background-color:  #140d24;
-    /* background-color: #261c42; */
+
+    background-color: rgb(3, 0, 27);
     height: 100%;
     width: 80%;
 }
 
+
+
 .frase {
-    background-image: linear-gradient(to bottom, #2b2e5c,rgb(11, 13, 43));
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.616),rgb(148, 150, 150) 3%);
     width: 20%;
-    height: 680px;
+    height: 750px;
     padding: 78px;
-    margin-top: 30px;
     position: fixed;
     margin-left: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
 }
 
 .frase h1{
+    margin-top: 60px;
     font-weight: bolder;
     text-shadow: rgb(83, 83, 83) 0.1em 0.1em 0.2em;
     font-size: 36px;
-    margin-bottom: 40px;
     display: flex;
     justify-content: center;
-    color: aliceblue;
 }
 
 .frase ul li{
     margin-bottom: 14px;
-    font-size: 18px;
+    font-size: 20px;
     list-style: none;
     font-weight:550;
-    color: aliceblue;
 }
 
 .temporadaum{
@@ -216,7 +225,7 @@ header p {
 
 .doutoresclassicos2{
     display: flex;
-    background-color:  #2b2e5c;
+    background-color: rgb(6, 3, 49);
     padding: 20px;
     border-radius: 10px;
     margin-bottom:20px;
@@ -235,31 +244,40 @@ header p {
     color: aliceblue;
 } 
 
-.star { 
+.estrela { 
 	font-size: 40px; 
     color: white;
 } 
 
-.one { 
+.primeira { 
 	color: rgb(255, 255, 0); 
 } 
 
-.two { 
+.segunda { 
 	color: rgb(255, 255, 0); 
 } 
 
-.three { 
+.terceira { 
 	color:rgb(255, 255, 0) } 
 
-.four { 
+.quarta { 
 	color: rgb(255, 255, 0); 
 } 
 
-.five { 
+.quinta { 
 	color: rgb(255, 255, 0) ; 
 }
 
 .dashboard{
     background-color: white;
     width: 270px;
+}
+
+footer{
+    background-color: #4b122a;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    height: 100px;
+    flex-direction: column;
 }

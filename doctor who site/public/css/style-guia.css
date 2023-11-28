@@ -235,27 +235,27 @@ header p {
     color: aliceblue;
 } 
 
-.star { 
+.estrela { 
 	font-size: 40px; 
     color: white;
 } 
 
-.one { 
+.primeira { 
 	color: rgb(255, 255, 0); 
 } 
 
-.two { 
+.segunda { 
 	color: rgb(255, 255, 0); 
 } 
 
-.three { 
+.terceira { 
 	color:rgb(255, 255, 0) } 
 
-.four { 
+.quarta { 
 	color: rgb(255, 255, 0); 
 } 
 
-.five { 
+.quinta { 
 	color: rgb(255, 255, 0) ; 
 }
 
@@ -263,4 +263,12 @@ header p {
     background-color: white;
     width: 270px;
     
+}
+footer{
+    background-color: #4b122a63;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    height: 100px;
+    flex-direction: column;
 }
