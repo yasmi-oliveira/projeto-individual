@@ -1,0 +1,43 @@
+.container{
+    background-image: linear-gradient(to bottom, #261c42, #7c3051);
+    padding: 100px;
+    color: white;
+}
+
+.saude{
+    border: 7px white solid;
+    padding: 100px;
+    text-align: center;
+    gap: 70px;
+    font-size: 19px;
+}
+
+.Whovians{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+
+.Whovians img{
+    height: 450px;
+    width: 900px;
+    border-radius: 30px;
+    margin-bottom: 30px;
+}
+
+.inicio{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: justify;
+    align-items: center;
+}
+
+.inicio img{
+    height: 450px;
+    width: 900px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    border-radius: 30px;
+}

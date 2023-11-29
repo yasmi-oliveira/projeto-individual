@@ -1,0 +1,45 @@
+.container{
+    padding: 160px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: white;
+    background-image: linear-gradient(to top left, #261c42,#261c42,#261c42,#261c42, #e95f67 96%);
+}
+
+.educacao{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+  
+}
+
+.educacao h1{
+    margin-bottom: 40px;
+}
+
+.episodeo img{
+    height: 200px;
+    margin-top: 10px;
+    margin-right: 20px;
+    border-radius: 10px;
+}
+.episodeo{
+margin-top: 60px;
+align-items: center;
+}
+
+.episodeo p{
+    display: flex;
+    align-items: center;
+}
+
+.text{
+    display: flex;
+    justify-content: space-around;
+    text-align: justify;
+}

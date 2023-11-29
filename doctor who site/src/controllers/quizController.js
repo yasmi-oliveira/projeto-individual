@@ -10,14 +10,14 @@ function adicionar(req, res) {
         })
         .catch(erro => {
             console.error("erro ao cadastrar pontos:", erro);
-            res.status(500).json({ error: "Erro interno ao cadastrar pontos." });
+            res.status(500).json({ erro: "Erro interno ao cadastrar pontos." });
         });
 }
 
-function getMinAndMaxScore(req, res) {
+function maiorMenorPontuação(req, res) {
     var username = req.params.username;
 
-    quizModels.getMinAndMaxScore(username)
+    quizModels.maiorMenorPontuação(username)
         .then(resultado => {
             if (resultado.length > 0) {
                 var minPontuacao = resultado[0].minPontuacao;
@@ -29,11 +29,11 @@ function getMinAndMaxScore(req, res) {
         })
         .catch(erro => {
             console.error("Erro ao obter pontuações:", erro);
-            res.status(500).json({ error: "Erro interno ao obter pontuações." });
+            res.status(500).json({ erro: "Erro interno ao obter pontuações." });
         });
 }
 
 module.exports = {
     adicionar: adicionar,
-    getMinAndMaxScore: getMinAndMaxScore
+   maiorMenorPontuação:maiorMenorPontuação
 };

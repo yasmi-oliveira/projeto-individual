@@ -10,7 +10,7 @@ function adicionar(qtd_acertos, username) {
     return database.executar(instrucao);
 }
 
-function getMinAndMaxScore(username) {
+function maiorMenorPontuação(username) {
     var instrucao = `
         SELECT MIN(qtd_acertos) AS minPontuacao, MAX(qtd_acertos) AS maxPontuacao
         FROM quiz
@@ -22,5 +22,5 @@ function getMinAndMaxScore(username) {
 
 module.exports = {
     adicionar: adicionar,
-    getMinAndMaxScore: getMinAndMaxScore
+    maiorMenorPontuação: maiorMenorPontuação
 };

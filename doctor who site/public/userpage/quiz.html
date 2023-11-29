@@ -38,119 +38,91 @@
     
         <div class="menu" id="home"></div>
 
-    <div class="quiz" id="Questao1" >
-       
-        <h1>
-            Quiz Questão 1
-        </h1>
-
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores iste nam quia eligendi aperiam exercitationem odit laboriosam nisi accusantium! Aperiam nulla in illo modi ipsum atque ad eos consequuntur culpa?</p>
-   
-        <div class="estilo">
-        <div class="respostaestilo" onclick="verificarresposta( 1)"> Resposta 1</div>
-        <div class="respostaestilo" onclick="verificarresposta( 0)"> Resposta 2</div>
-    </div>
-
+        <div class="aviso">
+            olá viajante!
+            quer testar seus conhecimentos obtidos durante sua estadia nessa nave? <br>
+            clique no botao abaixo para iniciar
+            <button onclick="jogar()">iniciar quiz</button>
+        </div>
+   <div class="pagina" style="display: none;">
+<div class="quiz" id="Questao1">
+    <h1>Quiz Questão 1</h1>
+    <p>Qual é o nome da nave espacial/temporal usada pelo Doutor em Doctor Who?</p>
     <div class="estilo">
-        <div class="respostaestilo" onclick="verificarresposta(0)"> Resposta 1</div>
-        <div class="respostaestilo" onclick="verificarresposta(0)"> Resposta 2</div>
+        <div class="respostaestilo" onclick="verificarresposta(1)">TARDIS</div>
+        <div class="respostaestilo" onclick="verificarresposta(0)">Manipulador Vortex</div>
     </div>
-    </div>
-
-    <div class="quiz" id="Questao2" style="display: none;">
-       
-        <h1>
-            Quiz Questão 2
-        </h1>
-
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores iste nam quia eligendi aperiam exercitationem odit laboriosam nisi accusantium! Aperiam nulla in illo modi ipsum atque ad eos consequuntur culpa?</p>
-   
-        <div class="estilo">
-        <div class="respostaestilo" onclick="verificarresposta( 0)"> Resposta 1</div>
-        <div class="respostaestilo" onclick="verificarresposta( 0)"> Resposta 2</div>
-    </div>
-
     <div class="estilo">
-        <div class="respostaestilo" onclick="verificarresposta( 1)"> Resposta 1</div>
-        <div class="respostaestilo" onclick="verificarresposta(0)"> Resposta 2</div>
+        <div class="respostaestilo" onclick="verificarresposta(0)">Chave Sônica</div>
+        <div class="respostaestilo" onclick="verificarresposta(0)">Cybermat</div>
     </div>
-    </div>
+</div>
 
-    <div class="quiz" id="Questao3"  style="display: none;">
-       
-        <h1>
-            Quiz Questão 3
-        </h1>
-
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores iste nam quia eligendi aperiam exercitationem odit laboriosam nisi accusantium! Aperiam nulla in illo modi ipsum atque ad eos consequuntur culpa?</p>
-   
-        <div class="estilo">
-        <div class="respostaestilo" onclick="verificarresposta( 0)"> Resposta 1</div>
-        <div class="respostaestilo" onclick="verificarresposta( 0)"> Resposta 2</div>
-    </div>
-
+<div class="quiz" id="Questao2" style="display: none;">
+    <h1>Quiz Questão 2</h1>
+    <p>Quem foi o primeiro ator a interpretar o Doutor na série original de Doctor Who (1963-1989)?</p>
     <div class="estilo">
-        <div class="respostaestilo" onclick="verificarresposta(0)"> Resposta 1</div>
-        <div class="respostaestilo" onclick="verificarresposta(1)"> Resposta 2</div>
+        <div class="respostaestilo" onclick="verificarresposta(0)">David Tennant</div>
+        <div class="respostaestilo" onclick="verificarresposta(0)">Matt Smith</div>
     </div>
-    </div>
-
-    <div class="quiz" id="Questao4"  style="display: none;">
-       
-        <h1>
-            Quiz Questão 4
-        </h1>
-
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores iste nam quia eligendi aperiam exercitationem odit laboriosam nisi accusantium! Aperiam nulla in illo modi ipsum atque ad eos consequuntur culpa?</p>
-   
-        <div class="estilo">
-        <div class="respostaestilo" onclick="verificarresposta(0)"> Resposta 1</div>
-        <div class="respostaestilo" onclick="verificarresposta(1)"> Resposta 2</div>
-    </div>
-
     <div class="estilo">
-        <div class="respostaestilo" onclick="verificarresposta(0)"> Resposta 1</div>
-        <div class="respostaestilo" onclick="verificarresposta(0)"> Resposta 2</div>
+        <div class="respostaestilo" onclick="verificarresposta(1)">William Hartnell</div>
+        <div class= "respostaestilo" onclick="verificarresposta(0)">Tom Baker</div>
     </div>
-    </div>
+</div>
 
-    <div class="quiz" id="Questao5" style="display: none;" >
-       
-        <h1>
-            Quiz Questão 5
-        </h1>
 
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores iste nam quia eligendi aperiam exercitationem odit laboriosam nisi accusantium! Aperiam nulla in illo modi ipsum atque ad eos consequuntur culpa?</p>
-   
-        <div class="estilo">
-        <div class="respostaestilo" onclick="verificarresposta( 1)"> Resposta 1</div>
-        <div class="respostaestilo" onclick="verificarresposta( 0)"> Resposta 2</div>
-    </div>
-
+<div class="quiz" id="Questao3" style="display: none;">
+    <h1>Quiz Questão 3</h1>
+    <p>Qual é o planeta natal do Doutor na série Doctor Who?</p>
     <div class="estilo">
-        <div class="respostaestilo" onclick="verificarresposta( 0)"> Resposta 1</div>
-        <div class="respostaestilo" onclick="verificarresposta(0)"> Resposta 2</div>
+        <div class="respostaestilo" onclick="verificarresposta(0)">Marte</div>
+        <div class="respostaestilo" onclick="verificarresposta(0)">Gallifrey</div>
     </div>
-    </div>
-
-    <div class="quiz" id="Questao6"  style="display: none;">
-       
-        <h1>
-            Quiz Questão 6
-        </h1>
-
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores iste nam quia eligendi aperiam exercitationem odit laboriosam nisi accusantium! Aperiam nulla in illo modi ipsum atque ad eos consequuntur culpa?</p>
-   
-        <div class="estilo">
-        <div class="respostaestilo" onclick="verificarresposta( 1)"> Resposta 1</div>
-        <div class="respostaestilo" onclick="verificarresposta( 0)"> Resposta 2</div>
-    </div>
-
     <div class="estilo">
-        <div class="respostaestilo" onclick="verificarresposta( 1)"> Resposta 1</div>
-        <div class="respostaestilo" onclick="verificarresposta(0)"> Resposta 2</div>
+        <div class="respostaestilo" onclick="verificarresposta(0)">Skaro</div>
+        <div class="respostaestilo" onclick="verificarresposta(1)">Terra</div>
     </div>
+</div>
+
+<div class="quiz" id="Questao4" style="display: none;">
+    <h1>Quiz Questão 4</h1>
+    <p>Quem foi o Doutor mais longevo em termos de número de temporadas?</p>
+    <div class="estilo">
+        <div class="respostaestilo" onclick="verificarresposta(0)">Décimo Doutor (David Tennant)</div>
+        <div class="respostaestilo" onclick="verificarresposta(1)">Quarto Doutor (Tom Baker)</div>
     </div>
+    <div class="estilo">
+        <div class="respostaestilo" onclick="verificarresposta(0)">Décimo Primeiro Doutor (Matt Smith)</div>
+        <div class="respostaestilo" onclick="verificarresposta(0)">Décima Terceira Doutora (Jodie Whittaker)</div>
+    </div>
+</div>
+
+<div class="quiz" id="Questao5" style="display: none;">
+    <h1>Quiz Questão 5</h1>
+    <p>Qual é o nome do vilão que é conhecido por viajar em uma cabine de polícia azul?</p>
+    <div class="estilo">
+        <div class="respostaestilo" onclick="verificarresposta(1)">O Mestre</div>
+        <div class="respostaestilo" onclick="verificarresposta(0)">Daleks</div>
+    </div>
+    <div class="estilo">
+        <div class="respostaestilo" onclick="verificarresposta(0)">Sontarans</div>
+        <div class="respostaestilo" onclick="verificarresposta(0)">Weeping Angels</div>
+    </div>
+</div>
+
+<div class="quiz" id="Questao6" style="display: none;">
+    <h1>Quiz Questão 6</h1>
+    <p>Qual é o verdadeiro nome do Doutor?</p>
+    <div class="estilo">
+        <div class="respostaestilo" onclick="verificarresposta(1)">Desconhecido</div>
+        <div class="respostaestilo" onclick="verificarresposta(0)">John Smith</div>
+    </div>
+    <div class="estilo">
+        <div class="respostaestilo" onclick="verificarresposta(0)">Theta Sigma</div>
+        <div class="respostaestilo" onclick="verificarresposta(0)">Rassilon</div>
+    </div>
+</div>
 
     <div class="quiz" id="Questao7"  style="display: none;">
         <h1>
@@ -160,57 +132,67 @@
         <h2>Maior pontuação: <span id="maxPontuacao"></span></h2>
         <h2>Menor pontuação: <span id="minPontuacao"></span></h2>
 
-    
+    </div></div>
 </main>
 </body>
-
 </html>
+<
 <script>
 
 var username = sessionStorage.getItem("username");
 
-        if (username) {
-            buscarMinMaxPontuacao(username);
-        }
+function jogar() {
+    
+    var aviso = document.querySelector(".aviso");
+    aviso.style.display = "none";
 
-        function buscarMinMaxPontuacao(username) {
-            fetch(`/quiz/minmax/${username}`)
-                .then(response => response.json())
-                .then(data => {
-                    minPontuacao.innerHTML = data.minPontuacao;
-                    maxPontuacao.innerHTML = data.maxPontuacao;
-                })
-                .catch(error => console.error("Erro ao buscar pontuações:", error));
-        }
-     function userpage() {
-       var menuhome = document.getElementById("home");
+    var pagina = document.querySelector(".pagina");
+    pagina.style.display = "block";}
 
-       if (menuhome.style.display === "none" || menuhome.style.display === "") {
-           menuhome.style.display = "block";
-       } else {
-           menuhome.style.display = "none";
-       }
-   }
 
-    var listaresposta = []
-    var respostacorreta = 0
-
-    var perguntaAtual = 1;
-
-    function mostrarPergunta(perguntaAtual) {
-        for (var numero = 1; numero <= 7; numero += 1) {
-            var pergunta = document.getElementById("Questao" + numero)
-            if (numero === perguntaAtual) {
-                pergunta.style.display = "block"
-            } else {
-                pergunta.style.display = "none"
-            }
-        }
-
+if (username) {
+    buscarMinMaxPontuacao(username).then(() => {
        
-    }
+    });
+}
 
-    function verificarresposta(n) {
+function buscarMinMaxPontuacao(username) {
+    return fetch(`/quiz/minmax/${username}`)
+        .then(resposta => resposta.json())
+        .then(data => {
+            minPontuacao.innerHTML = data.minPontuacao;
+            maxPontuacao.innerHTML = data.maxPontuacao;
+        })
+        .catch(erro => console.erro("Erro ao buscar pontuações:", erro));
+}
+
+function userpage() {
+    var menuhome = document.getElementById("home");
+
+    if (menuhome.style.display === "none" || menuhome.style.display === "") {
+        menuhome.style.display = "block";
+
+    } else {
+        menuhome.style.display = "none";
+    }
+}
+
+var listaresposta = [];
+var respostacorreta = 0;
+var perguntaAtual = 1;
+
+function mostrarPergunta(perguntaAtual) {
+    for (var numero = 1; numero <= 7; numero += 1) {
+        var pergunta = document.getElementById("Questao" + numero);
+        if (numero === perguntaAtual) {
+            pergunta.style.display = "block";
+        } else {
+            pergunta.style.display = "none";
+        }
+    }
+}
+
+function verificarresposta(n) {
     if (n == 1) {
         listaresposta.push(n);
         console.log("resposta correta!");
@@ -219,10 +201,10 @@ var username = sessionStorage.getItem("username");
     }
 
     respostacorreta = listaresposta.length;
+
     var username = sessionStorage.getItem("username");
 
-
-   score.innerHTML= (listaresposta.length)
+    score.innerHTML = (listaresposta.length);
 
     if (respostacorreta >= 0) {
         perguntaAtual += 1;
@@ -231,7 +213,6 @@ var username = sessionStorage.getItem("username");
                 mostrarPergunta(perguntaAtual);
             }, 500);
         } else {
-          
             fetch("/quiz/adicionar", {
                 method: "POST",
                 headers: {
@@ -241,19 +222,19 @@ var username = sessionStorage.getItem("username");
                     respostacorretaServer: respostacorreta,
                     usernameServer: username
                 }),
-            }).then(response => {
-                if (response.ok) {
+            }).then(res => {
+                if (res.ok) {
                     console.log("Pontuações enviadas com sucesso!");
                 } else {
-                    console.error("Erro ao enviar pontuações:", response.statusText);
+                    console.erro("Erro ao enviar pontuações:", res);
                 }
-            }).catch(error => {
-                console.error("Erro ao enviar pontuações:", error);
+            }).catch(erro => {
+                console.erro("Erro ao enviar pontuações:", erro);
             });
+            
             mostrarPergunta(7);
         }
-       
     }
-}
 
+}
 </script>

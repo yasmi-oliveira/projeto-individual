@@ -6,25 +6,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title></title>
   <link rel="stylesheet" href="css/style-login.css">
+  <link rel="stylesheet" href="css/style-index.css">
 </head>
 
 <body>
 
   <header>
     <div class="navbar">
-      <a href="index.html">
-        <div class="logo"><img src="assets/imags/userlmn_1d29dd8f3801443652fa35798ce71482-removebg-preview (1).png" alt=""></div>
-      </a>
-      <p>|</p>
-      <ul>
-        <li>Sobre a serie</li>
-      </ul>
-      <p>|</p>
-      <ul>
-        <li><a href="login.html">Login</a></li>
-      </ul>
+        <div class="logo"> <a href="index.html">
+                <img src="assets/imags/userlmn_1d29dd8f3801443652fa35798ce71482-removebg-preview (1).png"
+                    alt=""></a>
+        </div>
+
+        <p>|</p>
+
+        <ul>
+            <li><a href="sobre_a_serie.html">sobre a serie</a></li>
+        </ul>
+
+        <p>|</p>
+
+        <ul>
+            <li> <a href="episodeos.html">episodeos para reflexão</a></li>
+        </ul>
+
+        <p>|</p>
+
+        <ul>
+            <li> <a href="doctor.html">saude</a></li>
+        </ul>
+
+        <p>|</p>
+
+        <ul>
+            <li> <a href="comunidade.html">universe who</a></li>
+        </ul>
+
+        <p>|</p>
+
+        <ul>
+            <li> <a href="login.html">login</a></li>
+        </ul>
     </div>
-  </header>
+</header>
+
 
   <main>
     <div class="login">
@@ -52,6 +77,8 @@
 
           <button class="botao" onclick="cadastrar()">Cadastrar</button>
 
+          <span>ja tem uma conta? <a href="login.html">faça login</a></span>
+
           <div id="div_aguardar" class="loading-div">
             <!-- <img src="./assets/circle-loading.gif" id="loading-gif" /> -->
           </div>
@@ -59,76 +86,74 @@
           <div id="div_erros_login"></div>
         </div>
       </div>
-      <span>ja tem uma conta? <a href="login.html">faça login</a></span>
     </div>
   </main>
 
-  <script>
-  
-    function cadastrar() {
-      var nomeVar = nome_input.value;
-      var usernameVar = username_input.value;
-      var emailVar = email_input.value;
-      var senhaVar = senha_input.value;
-      var confirmacaoSenhaVar = confirmacao_senha_input.value;
-
-      if (
-        nomeVar == "" ||
-        emailVar == "" ||
-        senhaVar == "" ||
-        confirmacaoSenhaVar == "" ||
-        usernameVar == ""
-      ) {
-
-        mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-        finalizarAguardar();
-        return false;
-      } else {
-        setInterval(sumirMensagem, 5000);
-      }
-
-      fetch("/usuarios/cadastrar", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          nomeServer: nomeVar,
-          emailServer: emailVar,
-          senhaServer: senhaVar,
-          usernameServer: usernameVar
-        }),
-      })
-        .then(function (resposta) {
-          console.log("resposta: ", resposta);
-
-          if (resposta.ok) {
-            cardErro.style.display = "block";
-            mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
-            setTimeout(() => {
-              window.location = "login.html";
-            }, "2000");
-
-            limparFormulario();
-            finalizarAguardar();
-          } else {
-            throw "Houve um erro ao tentar realizar o cadastro!";
-          }
-        })
-        .catch(function (resposta) {
-          console.log(`#ERRO: ${resposta}`);
-          finalizarAguardar();
-        });
-
-      return false;
-    }
-
-    function sumirMensagem() {
-      cardErro.style.display = "none";
-    }
-  </script>
+  <footer>
+    <p>yasmin angelica</p>
+    <h5>email:yasmin@spceh.school</h5>
+    <h5>endereço: rua haddock lobo</h5>
+    <h5>telefone:</h5>
+</footer>
 
 </body>
-
 </html>
+
+  <script>
+  function cadastrar() {
+    var nomeVar = nome_input.value;
+    var usernameVar = username_input.value;
+    var emailVar = email_input.value;
+    var senhaVar = senha_input.value;
+
+    if (
+      nomeVar === "" ||
+      emailVar === "" ||
+      senhaVar === "" ||
+      usernameVar === ""
+    ) {
+      alert("Por favor, preencha todos os campos.");
+      return false;
+    }
+    if (senhaVar.length < 8) {
+      alert("A senha deve ter pelo menos 8 caracteres.");
+      return false;
+    }
+    if (emailVar.indexOf("@") === -1 || emailVar.indexOf(".") === -1) {
+      alert("Por favor, insira um endereço de e-mail válido.");
+      return false;
+    }else{
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        nomeServer: nomeVar,
+        emailServer: emailVar,
+        senhaServer: senhaVar,
+        usernameServer: usernameVar,
+      }),
+    })
+      .then(function (resposta) {
+        if (resposta.ok) {
+          alert("Cadastro realizado com sucesso! Redirecionando para a tela de Login...");
+          setTimeout(() => {
+            window.location = "login.html";
+          }, 2000);
+
+          limparFormulario();
+          finalizarAguardar();
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        alert("Erro ao cadastrar. Verifique os dados e tente novamente.");
+        finalizarAguardar();
+      });
+
+    return false;
+  }}
+</script>

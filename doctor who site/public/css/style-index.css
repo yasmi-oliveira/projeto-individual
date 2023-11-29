@@ -73,14 +73,6 @@ header p {
     background-repeat: no-repeat;
 }
 
-/* .star-container{
-background-image: url(assets/imags/79d3d23b69b77ccc0bd65dbdecf6501f.gif);
-background-repeat: repeat;
-background-position: center; 
-background-size: contain;
-
-} */
-
 .entrar{
    background-image: linear-gradient(to top right, #261c42,#261c42,#261c42,#261c42, #e95f67 80%);
     width: 100%;
@@ -92,14 +84,14 @@ background-size: contain;
 width: 400px;
 height: 400px;
 margin-bottom: 40px;
-/* margin-top: 70px; */
 
 }
 .gif{
     display: flex;
     padding: 30px;
     color: white;
-    justify-content: space-between;
+    /* justify-content: space-around; */
+    align-items: center;
    
 }
 
@@ -107,6 +99,9 @@ margin-bottom: 40px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    padding: 40px;
+    text-align: center;
+    margin-right: 70px;
 }
 
 .texto {
@@ -182,14 +177,16 @@ margin-bottom: 40px;
 
 .frase h1{
     font-weight: bolder;
-    text-shadow: black 0.1em 0.1em 0.2em;
+    text-shadow: black 0.2em 0.1em 0.2em;
     font-size: 36px;
     margin-top: 40px;
     margin-bottom: 40px;
 }
 
 .frase ul li{
-    margin-bottom: 50px;
+    margin-bottom: 30px;
+    font-weight: bolder;
+    text-shadow: black 0.1em 0.1em 0.2em;
 }
 .imagem_tardis {
     display: flex;
@@ -276,8 +273,24 @@ margin-bottom: 40px;
 
 }
 
+.btn{
+    height: 40px;
+    border: 2px white solid;
+    border-radius: 3px;
+    margin-right: 10px;
+    margin-top: 200px;
+    padding: 5px;
+}
+
+.btn a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    
+}
+
 footer{
-    background-color: #4b122a63;
+    background-color: #4b122a;
     color: white;
     display: flex;
     justify-content: space-around;

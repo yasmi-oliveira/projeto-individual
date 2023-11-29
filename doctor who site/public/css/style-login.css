@@ -6,10 +6,11 @@
     box-sizing: border-box;
     font-family: 'Lato', sans-serif;
     cursor: pointer;
+  
 }
 
 header .navbar {
-    background-image: linear-gradient(to bottom, #261c42, #7c305163);
+    background-image: linear-gradient(to bottom, #2f2350, #e95f66b5);
     width: 100%;
     height: 70px;
     display: flex;
@@ -17,7 +18,7 @@ header .navbar {
 }
 
 body{
-    background: url(../assets/imags/wp6146889.webp);
+    background: url(../assets/imags/tardiswall.png);
     background-position: center;
     background-size: contain;
 }
@@ -49,7 +50,6 @@ header p {
 
 
 main {
-    background-image: linear-gradient(to bottom);
     width: 100%;
     height: 680px;
     background-position: center;
@@ -68,7 +68,7 @@ main {
     color: rgb(255, 255, 255);
     height: 500px;
     justify-content: space-around;
-
+    margin-top: 35px;
 }
 
 /* .cardum {
@@ -89,7 +89,7 @@ height: 100%;
 .carddois {
     height: 100%;
     color: black;
-    background-color: rgb(200, 195, 195);
+    background-image: linear-gradient(to top left, rgba(38, 28, 66, 0.752), #e95f66b7 96%);
     width: 500px;
     margin-right: 200px;
     padding: 50px;
@@ -97,12 +97,22 @@ height: 100%;
     flex-direction: column;
     justify-content: space-around;
     text-align: center;
-    gap: 5px;
+    gap: 8px;
+    border-radius: 50px;
 }
 
 .carddois input{
     height: 50px;
     border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    border-bottom:  2px white solid;
+    text-align: center;
+    font-size: 17px;
+}
+
+
+.carddois input:hover{
+    background-color: rgb(186, 185, 209)
 }
 
 .doctor{
@@ -110,10 +120,11 @@ height: 100%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: rgba(240, 248, 255, 0.029);
+    background-color: rgba(38, 28, 66, 0.752);
    padding: 20px;
    text-align: center;
-   margin-left: 60px;
+   margin-left: 100px;
+   border-radius: 50px;
 }
 
 .doctor img{
@@ -123,4 +134,53 @@ height: 100%;
 .doctor p{
     font-size: 17px;
     
+}
+
+.carddois button{
+    height: 40px;
+    color: black;
+    font-weight: bolder;
+}
+
+.carddois button:hover{
+    background-color: #564e6c;
+}
+
+.carddoiss {
+    height: 100%;
+    color: black;
+    background-image: linear-gradient(to top left, rgba(38, 28, 66, 0.752), #e95f66b7 96%);
+    width: 500px;
+    margin-right: 200px;
+    padding: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    gap: 8px;
+    border-radius: 50px;
+}
+
+.carddoiss input{
+    height: 40px;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    border-bottom:  2px white solid;
+    text-align: center;
+    font-size: 17px;
+}
+
+.carddoiss button{
+    height: 40px;
+    color: black;
+    font-weight: bolder;
+}
+
+
+.carddoiss button:hover{
+    background-color: #564e6c;
+}
+
+.carddoiss input:hover{
+    background-color: rgb(186, 185, 209)
 }

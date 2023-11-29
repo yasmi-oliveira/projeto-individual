@@ -57,3 +57,21 @@ main {
 .respostacerta{
     background-color: rgb(69, 136, 69);
 }
+
+.aviso{
+    display: flex;
+    padding: 200px;
+    align-items: center;
+    background-color: aliceblue;
+    text-align: center;
+    flex-direction: column;
+    font-size: 25px;
+    height: 695px;
+    width: 100%;
+}
+
+.aviso button{
+    height: 100px;
+    width: 150px;
+    margin-top: 30px;
+}

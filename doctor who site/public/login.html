@@ -8,26 +8,45 @@
     <title></title>
     <script src="./js/sessao.js"></script>
     <link rel="stylesheet" href="css/style-login.css">
+    <link rel="stylesheet" href="css/style-index.css">
 </head>
 
 <body>
 
     <header>
         <div class="navbar">
-           <a href="index.html"> <div class="logo"><img
-                    src="style/assets/imags/userlmn_1d29dd8f3801443652fa35798ce71482-removebg-preview (1).png" alt="">
-            </div> </a>
+            <div class="logo"> <a href="index.html">
+                    <img src="assets/imags/userlmn_1d29dd8f3801443652fa35798ce71482-removebg-preview (1).png"
+                        alt=""></a>
+            </div>
+
             <p>|</p>
 
             <ul>
-                <li>Sobre a serie</li>
+                <li><a href="sobre_a_serie.html">sobre a serie</a></li>
             </ul>
 
             <p>|</p>
 
+            <ul>
+                <li> <a href="episodeos.html">episodeos para reflexão</a></li>
+            </ul>
+
+            <p>|</p>
+
+            <ul>
+                <li> <a href="doctor.html">saude</a></li>
+            </ul>
+
+            <p>|</p>
+
+            <ul>
+                <li> <a href="comunidade.html">universe who</a></li>
+            </ul>
+
+            <p>|</p>
             <ul>
                 <li> <a href="cadastro.html">Cadastro</a></li>
-            </ul>
             </ul>
         </div>
     </header>
@@ -39,17 +58,15 @@
                 <div class="card_erro" id="cardErro">
                     <span id="mensagem_erro"></span>
                 </div>
-            <div class="cards" style="background-image: url(assets/imags/e351d6bbd29979a6e1fc6994973883bb.jpg);">
+            <div class="cards" style="background-image: url(assets/imags/);">
 
-                <div class="cardum">
+                <div class="doctor">
                     <h1>ola! <br>
                         bem vindo de volta viajante!</h1>
-                    <!-- <img src="assets/imags/kisspng-doctor-valentine-s-day-amy-pond-tardis-police-box-5b2985c2130532.1997155915294478740779.png" -->
-                        alt="">
+                    <img src="assets/imags/1494783a96d777e2192788fac610e4d8-removebg-preview (1).png" alt="">
                 </div>
 
-                <div class="carddois">
-                    <!-- <img src="style/assets/imags/logincadastro/c56157d5-5d8e-4826-89f9-361412275c35.jpg" alt=""> -->
+                <div class="carddoiss" >  <!-- <img src="style/assets/imags/logincadastro/c56157d5-5d8e-4826-89f9-361412275c35.jpg" alt=""> -->
                     <h3>username:</h3>
                     <input type="text" id="username_input">
 
@@ -64,14 +81,13 @@
         </div>
 
     </main>
-    <!--footer inicio-->
-    <div class="footer">
-        <div class="container">
-            <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023</h4>
-            <span class="version">v1.0.0</span>
-        </div>
-    </div>
-    <!--footer fim-->
+    
+    <footer>
+        <p>yasmin angelica</p>
+        <h5>email:yasmin@spceh.school</h5>
+        <h5>endereço: rua haddock lobo</h5>
+        <h5>telefone:</h5>
+    </footer>
 
 </body>
 
@@ -119,7 +135,7 @@
                     sessionStorage.ID_USUARIO = json.id;
 
                     setTimeout(function () {
-                        window.location = "userpage/guia.html";
+                        window.location = "userpage/home.html";
                     }, 1000); // apenas para exibir o loading
                 });
 

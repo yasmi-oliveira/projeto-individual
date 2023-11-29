@@ -1,6 +1,4 @@
-body{
-    background-color: rgb(3, 0, 27);
- }
+
 
 .sobre{
   
@@ -9,15 +7,19 @@ body{
     align-items: center;
     font-size: 19px;
     color: white;
+    background-image: linear-gradient(to top right, #261c42,#261c42,#261c42,#261c42, #e95f67 90%);
+}
+
+.sobre h1{
+    font-size: 50px;
 }
 
 .sobre img{
     height: 500px;
     width: 700px;
     margin-top: 50px;
-    border-radius: 8px;
+    border-radius: 100%;
     margin-bottom: 50px;
- 
 }
 
 .textos{
@@ -29,6 +31,7 @@ body{
     margin-right: 150px;
     gap: 17px;
     margin-bottom: 20px;
+
 }
 
 .textos h1{
@@ -37,8 +40,16 @@ body{
 }
 
 .banner{
-    margin-top: 100px;
+  
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 100px;
 }
+
+/* .container{
+    background-color: #8f8f8f52;
+    margin: 110px;
+    margin-top: 70px;
+    border-radius: 10px;
+} */

@@ -19,7 +19,7 @@ create table temporada(
 idtemp int primary key auto_increment,
 nometemp varchar(25),
 dttemp date,
- fkserie int,
+fkserie int,
  foreign key (fkserie) references serie(idserie));
 
 select * from usuario ;

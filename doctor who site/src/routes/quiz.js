@@ -8,7 +8,7 @@ router.post("/adicionar", function (req, res) {
 })
 
 router.get("/minmax/:username", function (req, res) {
-    usuarioController.getMinAndMaxScore(req, res);
+    usuarioController.maiorMenorPontuação(req, res);
 });
 
 module.exports = router;
