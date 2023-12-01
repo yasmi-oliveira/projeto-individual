@@ -10,7 +10,7 @@ function adicionar(req, res) {
         })
         .catch(erro => {
             console.error("erro ao cadastrar pontos:", erro);
-            res.status(500).json({ erro: "Erro interno ao cadastrar pontos." });
+            res.status(500).json({ erro: "Erro ao cadastrar pontos." });
         });
 }
 
@@ -29,7 +29,7 @@ function maiorMenorPontuação(req, res) {
         })
         .catch(erro => {
             console.error("Erro ao obter pontuações:", erro);
-            res.status(500).json({ erro: "Erro interno ao obter pontuações." });
+            res.status(500).json({ erro: "Erro ao obter pontuações." });
         });
 }
 

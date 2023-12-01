@@ -22,14 +22,11 @@ function obterDadosDoGrafico(req, res) {
         .then(data => {
             res.json(data);
         })
-        .catch(error => {
-            console.error("Erro ao buscar dados do gráfico:", error);
+        .catch(erro => {
+            console.error("Erro ao buscar dados do gráfico:", erro);
             res.status(500).json(error);
         });
 }
-
-
-
 
 module.exports = {
     cadastrarAvaliacao,
